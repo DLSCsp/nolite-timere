@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</head>
+
+<script>
+
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("senha");
+      var passwordToggle = document.getElementById("password-toggle");
+  
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        passwordToggle.textContent = "Ocultar senha";
+      } else {
+        passwordInput.type = "password";
+        passwordToggle.textContent = "Exibir senha";
+      }
+    }
+
+    function verificarSenha() {
+      var senhaDigitada = document.getElementById("senha").value;
+      var senhaDigitadaMD5 = CryptoJS.MD5(senhaDigitada).toString();
+      var senhaCorreta = ("5e3300a13cb77b43252e39a700f3a1dd").toString();
+      
+      if (senhaDigitadaMD5 === senhaCorreta) {
+        window.location.href = "form.html";
+      } else {
+        alert("Senha incorreta! Lembre-se de colocar os espaços ou letras maiúsculas.");
+      }
+      
+      return false;
+    }
+
+
+  </script>
+
+<body>
+
+    <div class="container">
+
+        <span class="glitch-text"><center>Cum Michael archangelus cum Diabolo disputans altercaretur de Moysis corpore, non est ausus iudicium inferre blasphemiae, sed dixit: "Increpet te Dominus!"</center></span>
+    
+        <p class="cipher"><center>--.- ..- .- .-. - ---</center></p>
+    </div>
+
+    <div class="topo">
+
+      <form class="form" onsubmit="return verificarSenha()">
+        <label class="label" for="senha"></label>
+        <input placeholder="Digite a senha" class="camposenha" type="password" id="senha" required>
+        <span id="password-toggle" class="password-toggle" onclick="togglePasswordVisibility()">Exibir senha</span>
+        <br>
+        <input class="botão" type="submit" value="Verificar">
+      </form>
+    </div>
+
+</body>
+
+</html>
